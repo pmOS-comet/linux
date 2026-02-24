@@ -2,9 +2,9 @@ name: Build Kernel RPM
 
 on:
   push:
-    branches: [ "main", "imx/lf-6.12.20", "pre-release" ]
+    branches: [ "imx-lf-6.12.y" ]
   pull_request:
-    branches: [ "main", "imx/lf-6.12.20", "pre-release" ]
+    branches: [ "imx-lf-6.12.y" ]
   workflow_dispatch:
 
 jobs:
@@ -41,18 +41,9 @@ jobs:
             openssl \
             dwarves
 
-      - name: Clone mwifiex driver
-        run: |
-          mkdir -p drivers/staging
-          cd drivers/staging
-          if [ ! -d "mwifiex" ]; then
-            git clone https://github.com/nxp-imx/mwifiex
-          fi
-
       - name: Configure Kernel
         run: |
           cp arch/arm64/configs/mecha_v8_defconfig .config
-          
 
       - name: Build Kernel
         run: |
