@@ -190,7 +190,7 @@
 		};
 	};
 
-	Comet-Extension {
+	/*Comet-Extension {
 		compatible = "gpio-keys";
 
 		keypad-slide {
@@ -199,7 +199,7 @@
 			linux,code = <KEY_F24>;
 			gpios = <&gpio4 23 GPIO_ACTIVE_HIGH>;
 		};
-	};
+	};*/
 
 };
 
